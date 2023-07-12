@@ -34,7 +34,7 @@ const Dashboard = () => {
       alert("Details are mandatory");
     }
     getState.price = Number(getState.price);
-    axios.post('http://localhost:8080/api/product/create', getState).then(() => {
+    axios.post('https://aneco-backend-deployment.onrender.com/api/product/create', getState).then(() => {
       setError('');
       alert("successfully data added");
       getListDetails();
@@ -62,7 +62,7 @@ const Dashboard = () => {
   },[])
 
   const getListDetails=()=>{
-    axios.get('http://localhost:8080/api/product/list').then((result)=>{
+    axios.get('https://aneco-backend-deployment.onrender.com/api/product/list').then((result)=>{
            console.log(result.data);
            if(result.data && result.data.post){
              setList(result.data.post);
@@ -83,7 +83,7 @@ const Dashboard = () => {
   }
 
   const deleteListDetails=(id)=>{
-    axios.delete(`http://localhost:8080/api/product/list/${id}`).then((result)=>{
+    axios.delete(`https://aneco-backend-deployment.onrender.com/api/product/list/${id}`).then((result)=>{
            getListDetails();
       }).catch((err)=>{
         if (err.response && err.response.data && err.response.data.message) {
@@ -106,7 +106,7 @@ const Dashboard = () => {
 
   const onUpdateSubmitDetails=(event)=>{
     event.preventDefault();
-    axios.patch(`http://localhost:8080/api/product/list/${getList[getIndex]._id}`,{...getState}).then((result)=>{
+    axios.patch(`https://aneco-backend-deployment.onrender.com/api/product/list/${getList[getIndex]._id}`,{...getState}).then((result)=>{
       getListDetails();
       setModal(false);
  }).catch((err)=>{

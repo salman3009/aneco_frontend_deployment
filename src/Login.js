@@ -22,7 +22,7 @@ const Login = () => {
               alert("please provide the details");
               return;
          }
-         axios.post('http://localhost:8080/api/user/login',getData).then((result)=>{
+         axios.post('https://aneco-backend-deployment.onrender.com/api/user/login',getData).then((result)=>{
             console.log("successful");
             sessionStorage.setItem('email',result.data.email);
             sessionStorage.setItem('token',result.data.token);

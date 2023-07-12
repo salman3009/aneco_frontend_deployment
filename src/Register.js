@@ -20,7 +20,7 @@ const Register = () => {
               alert("please provide the details");
               return;
          }
-         axios.post('http://localhost:8080/api/user/register',getData).then(()=>{
+         axios.post('https://aneco-backend-deployment.onrender.com/api/user/register',getData).then(()=>{
             console.log("successful");
             navigate('login');
          }).catch((err)=>{
